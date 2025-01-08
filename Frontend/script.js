@@ -1,11 +1,11 @@
 "use strict";
 
 // Use the actual live server URL
-const socket = io("http://localhost:3000"); // Connect to the Socket.IO server
+const socket = io("https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net"); // Connect to the Socket.IO server
 
 async function fetchTeam() {
   try {
-    const response = await fetch("http://localhost:3000/getTeam");
+    const response = await fetch("https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net/getTeam");
     if (!response.ok) {
       throw new Error(
         `HTTP error! status: ${response.status}, ${response.statusText}`
