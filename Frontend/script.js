@@ -1,6 +1,6 @@
 "use strict";
 
-const serverURL = import.meta.env.VITE_SERVER_URL || "http://localhost:3000";
+const serverURL = "https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net";
 
 const socket = io(serverURL);
 const getTeamLink = `${serverURL}/getTeam`;
