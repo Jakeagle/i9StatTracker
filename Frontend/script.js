@@ -2,10 +2,12 @@
 
 // Use the actual live server URL
 const socket = io("https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net"); // Connect to the Socket.IO server
-
+const getTeamLink = "https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net/getTeam"
 async function fetchTeam() {
   try {
-    const response = await fetch("https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net/getTeam");
+    const response = await fetch(getTeamLink,{
+      method:'GET',      
+    });
     if (!response.ok) {
       throw new Error(
         `HTTP error! status: ${response.status}, ${response.statusText}`
