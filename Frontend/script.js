@@ -1,12 +1,14 @@
 "use strict";
 
-// Use the actual live server URL
-const socket = io("https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net"); // Connect to the Socket.IO server
-const getTeamLink = "https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net/getTeam"
+const serverURL = import.meta.env.VITE_SERVER_URL || "http://localhost:3000";
+
+const socket = io(serverURL);
+const getTeamLink = `${serverURL}/getTeam`;
+
 async function fetchTeam() {
   try {
-    const response = await fetch(getTeamLink,{
-      method:'GET',      
+    const response = await fetch(getTeamLink, {
+      method: "GET",
     });
     if (!response.ok) {
       throw new Error(
