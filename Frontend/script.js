@@ -93,4 +93,4 @@ socket.on("statUpdated", (data) => {
 });
 
 // Fetch and populate the team on page load
-fetchTeam();
+await fetchTeam();
