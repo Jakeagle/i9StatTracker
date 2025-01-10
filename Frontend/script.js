@@ -1,21 +1,17 @@
 "use strict";
 
-const serverURL = "https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net";
-
-const socket = io(serverURL);
-const getTeamLink = `${serverURL}/getTeam`;
+const socket = io("https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net");
+const getTeamLink = "https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net/players";
 
 async function fetchTeam() {
   try {
-    const response = await fetch(getTeamLink, {
+    const res = await fetch(getTeamLink, {
       method: "GET",
     });
-    if (!response.ok) {
-      throw new Error(
-        `HTTP error! status: ${response.status}, ${response.statusText}`
-      );
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}, ${res.statusText}`);
     }
-    const team = await response.json();
+    const team = await res.json();
     populateTeam(team);
   } catch (error) {
     console.error("Failed to fetch team:", error);
@@ -68,7 +64,7 @@ export async function updateStat(playerName, statType) {
   };
 
   try {
-    const res = await fetch(`${serverURL}/updateStats`, {
+    const res = await fetch("https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net/updateStats", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
