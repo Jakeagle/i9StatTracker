@@ -55,7 +55,15 @@ function populateTeam(team) {
 export async function updateStat(playerName, statType) {
   const statElement = document.getElementById(statType + playerName);
   const currentStat = parseInt(statElement.innerText, 10);
-  const updatedStat = currentStat + 1;
+  let updatedStat;
+
+  console.log(statType);
+
+  if (statType === "points") {
+    updatedStat = currentStat + 2; // Increment by 2 if the stat type is point
+  } else {
+    updatedStat = currentStat + 1; // Increment by 1 for other stat types
+  }
 
   const parcel = {
     playerName: playerName,
@@ -64,7 +72,7 @@ export async function updateStat(playerName, statType) {
   };
 
   try {
-    const res = await fetch("https://i9stattracker-2-bcgff7gza0ebhpby.canadacentral-01.azurewebsites.net/updateStats", {
+    const res = await fetch("https://i9stattracker-2-bcgff7gza0ebhpby.canadacentral-01.azurewebsites.net/updateStat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
