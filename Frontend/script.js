@@ -1,7 +1,7 @@
 "use strict";
 
-const socket = io("https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net");
-const getTeamLink = "https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net/players";
+const socket = io("https://i9stattracker-2-bcgff7gza0ebhpby.canadacentral-01.azurewebsites.net");
+const getTeamLink = "https://i9stattracker-2-bcgff7gza0ebhpby.canadacentral-01.azurewebsites.net/players";
 
 async function fetchTeam() {
   try {
@@ -64,7 +64,7 @@ export async function updateStat(playerName, statType) {
   };
 
   try {
-    const res = await fetch("https://i9stattracker-h2hpadgbh7ayhwd3.centralus-01.azurewebsites.net/updateStats", {
+    const res = await fetch("https://i9stattracker-2-bcgff7gza0ebhpby.canadacentral-01.azurewebsites.net/updateStats", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
